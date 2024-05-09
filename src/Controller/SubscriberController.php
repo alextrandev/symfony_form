@@ -21,7 +21,7 @@ class SubscriberController extends AbstractController {
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($subscriber);
             $em->flush();
-            return new Response("Subscriber number {$subscriber->getID()} created");
+            return $this->render('subscriber/confirm.html.twig');
         }
 
         return $this->render('subscriber/index.html.twig', [
